@@ -1,0 +1,2 @@
+virtualbox: https://bit.ly/3wFilHW
+vmdk:  https://bit.ly/3MDZ940  v202010.21.0

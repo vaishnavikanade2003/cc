@@ -1,0 +1,112 @@
+sudo nano Server.java
+//import java.io.*;
+import java.net.*;
+
+public class Server {
+    public static void main(String args[]) {
+        try {
+            ServerSocket ss = new ServerSocket(10087);
+            System.out.println("Waiting for connection...");
+            Socket s = ss.accept();
+            System.out.println("Connected.");
+
+            DataInputStream dis = new DataInputStream(s.getInputStream());
+            String filename = dis.readUTF();
+            FileInputStream fis = new FileInputStream(filename);
+            BufferedInputStream bis = new BufferedInputStream(fis);
+
+            DataOutputStream dos = new DataOutputStream(s.getOutputStream());
+            BufferedOutputStream bos = new BufferedOutputStream(dos);
+
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = bis.read(buffer)) != -1) {
+                bos.write(buffer, 0, bytesRead);
+            }
+
+            bos.flush();
+            System.out.println("File sent to client.");
+
+            bos.close();
+            bis.close();
+            s.close();
+            ss.close();
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+
+sudo nano Client.java
+
+//
+import java.io.*;
+import java.net.*;
+
+public class Client {
+    public static void main(String args[]) {
+        try {
+            Socket s = new Socket("127.0.0.1", 10087);
+
+            DataOutputStream dos = new DataOutputStream(s.getOutputStream());
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter the file name:");
+            String filename = sc.nextLine();
+            dos.writeUTF(filename);
+
+            DataInputStream dis = new DataInputStream(s.getInputStream());
+            FileOutputStream fos = new FileOutputStream("received_" + filename);
+            BufferedOutputStream bos = new BufferedOutputStream(fos);
+
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = dis.read(buffer)) != -1) {
+                bos.write(buffer, 0, bytesRead);
+            }
+
+            bos.flush();
+            System.out.println("File received from server.");
+
+            bos.close();
+            dis.close();
+            s.close();
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+
+
+javac Server.java
+javac Client.java
+
+java server
+java Client
+
+///////////////
+
+
+Drive link :
+https://drive.google.com/drive/u/0/folders/1me_nJJh0fvdDOXX3ew2jzGQpoP7f_iFt
+
+VM1
+
+ifconfig
+
+sudo apt install net-tools
+
+touch sid.txt
+
+nano sid.txt
+
+scp sid.txt vagrant@10.0.2.6:/home/vagrant
+
+VM2
+
+if config
+
+sudo apt install net-tools
+
+ls
+
+cat sid.txt

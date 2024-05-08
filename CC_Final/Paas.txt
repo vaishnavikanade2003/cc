@@ -1,0 +1,28 @@
+Create GitHub Repo for Website
+
+Create a Folder -> cmd -> git clone (Repo link) -> cd reponame -> npx creare-react-demo1 -> git add . -> git commit -m "intial commit" -> git push 
+
+Go to AWS
+Sign in to the console 
+Serch Amplify 
+Click on it
+Get started 
+Select Amplify hosting
+Click Github
+In recently added repo Select your Repo name
+Click on monorepo write react app name (demo1) 
+Next (if code is without error)
+Save and deploye
+After Provision, Build and Deploy is Completed
+Click on the link to see the React app 
+
+Open the react app on scr app.js change the code as your wish
+Wait for deploy
+
+
+
+209077726627
+Lilavati
+Lilavati@4545
+https://github.com/aniketkadale/WAD-Final-4
+https://github.com/aniketkadale/Cloud-Practicals-TE

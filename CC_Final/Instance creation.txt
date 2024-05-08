@@ -1,0 +1,16 @@
+Open AWS
+Sign into console
+Search ec2 elastic cloud compute
+Click
+Launch instance 
+Give name (eg: myinstance)
+Select ubuntu
+free tier
+Select or Create new 
+Allow all click on it 
+Launch instance
+second click on isntance
+connect clclon connect 
+
+
+Install putty and winscp

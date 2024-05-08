@@ -1,0 +1,18 @@
+Drive link:
+https://drive.google.com/drive/folders/1dsTRnPoOAgrlrRQa_kTcKvfThhdwu5ND
+
+Install eclipse first
+Install jdk 
+Install jre
+Choose (eclipse IDE for Java Devloper) after eclipse load
+Reopen Eclipse
+
+Click on New -> Java Project (name any) -> next and finish.
+Click on Java project -> right click on src -> New -> Package -> Package name (custom_package) -> finish.
+Click on src -> Show in -> System Explorer ( in srs folder cusom_package paste the files from folder src downloaded).
+Close Project in Eclipse (right click on project name and close projct) and Reopen.
+Change package name in every source file (custom_package).
+For adding Jar files (Extract cloudsim-4.0)
+Right click on Project -> Build path -> Configure Build path -> Click on Libraries -> Add External JARs -> Selects the Jar files(present in cloudsim-4.0) Which we have extracted 
+Apply and close
+Right click on Project -> Run as Java Project -> Search ( SJF_Scheduler-custom_package) ->ok.

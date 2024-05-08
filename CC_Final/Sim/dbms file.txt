@@ -1,0 +1,117 @@
+/////////////////////////////////////////////////////////creation of Database////////////////////////////////////////////////////////
+
+mysql> create database 41_institute;
+
+create table department( dept_id integer(2), dept_name varchar(20) Not NULL, year_of_est integer(4), intake integer(4), budget numeric(8,2));
+
+create table instructor( inst_id integer(20), inst_name varchar(80) Not NULL, post varchar(20) Not NULL, qualification varchar(20), domain varchar(20) Not NULL, doj date Not NULL,mob_no integer Not NULL, city varchar(20), salary numeric(8,2), year_of_exp integer(2), dept_id integer(2), primary key(inst_id), check(salary>35000),constraint foreign key(dept_id) references department(dept_id));
+
+
+create table student(roll_no integer(2),student_name varchar(20) Not NULL, dob date, dept_id integer, year integer Not NULL, city varchar(20), mob_no integer Not NULL,primary key(roll_no), foreign key(dept_id) references department(dept_id) );
+
+
+create table course(course_id integer, title varchar(30) Not NULL, no_of_hrs integer, dept_id integer, year integer Not NULL, primary key(course_id), foreign key(dept_id) references department(dept_id) );
+
+
+create table teaches(inst_id integer, course_id integer,roll_no integer, semester integer Not NULL, foreign key(inst_id) references instructor (inst_id), foreign key(course_id) references course(course_id), foreign key(roll_no) references student(roll_no));
+
+
+///////////////////////////////////////////various Questions///////////////////////////////////////////////////////////////////////////////////////
+
+select inst_name,domain from instructor;
+
+select inst_name,domain from instructor where dept_id=6;
+
+////////////////////////////////////////////////////////////////////Use of and////////////////////////////////////////////////////////////////////////
+
+mysql> select inst_name,salary from instructor where salary>75000 and salary<125000;
+
+
+mysql> select inst_name,salary from instructor where salary between 75000 and 125000;
+
+
+select inst_name from instructor where city='Pune';
+
+
+//////////////////////////////////////////////////////////////////////////Use of order by//////////////////////////////////////////////////////////////////
+
+mysql> select inst_name from instructor order by salary;
+
+///////////////////////////////////////////////////////Use of as///////////////////////////////////////////////////////////////////////////////////
+
+mysql> select inst_name,salary,salary+salary*0.5 as 'Salary with Increment' from instructor;
+
+
+mysql> select inst_name,salary*12 as 'Annual Salary' from instructor;
+
+mysql> select inst_name,salary*12  from instructor;
+
+mysql> select inst_name,city from instructor where city like 'P%';
+
+///////////////////////////////////////////Use of like///////////////////////////////////////////////
+
+mysql> select inst_name,city from instructor where city like '%P%';
+
+mysql> select inst_name,city from instructor where city like 'P%';
+
+///////////////////////////////////////////Prevention of Cross Product///////////////////////////////////////////////
+
+mysql> select i.inst_name,d.dept_name,i.salary from instructor i,department d where salary>(select salary from instructor where inst_id=1015);
+
+else we have to use below query:-
+
+mysql> select i.inst_name,d.dept_name,i.salary from instructor i,department d where i.salary>(select salary from instructor where inst_id=1016 and i.dept_id=d.dept_id);
+
+////////////////////////////////////////////////////Various Questions///////////////////////////////////////////////////////////////
+
+select max(salary),min(salary),avg(salary),sum(salary),count(salary) from instructor;
+
+mysql> select max(salary) from instructor group by dept_id;
+
+mysql> select count(inst_id) from instructor;
+
+mysql> select count(*) from instructor;
+
+mysql> select count(*) from instructor group by inst_id;
+
+mysql> select count(*) from instructor group by dept_id;
+
+mysql> select d.dept_id,max(salary) from instructor i,department d group by dept_id;
+
+mysql> select d.dept_id,min(salary) from instructor i,department d group by dept_id;
+
+mysql> select d.dept_name,min(salary) from instructor i,department d group by d.dept_id;
+
+mysql> select d.dept_name,count(*) from instructor i,department d where i.dept_id=d.dept_id group by d.dept_id;
+
+mysql> select d.dept_name,min(salary) from instructor i,department d where i.dept_id=d.dept_id group by d.dept_name;
+
+mysql> select count(*) from instructor i,department d group by i.city;
+
+mysql> select count(*) from instructor group by city;
+
+select dept_id,count(*) from instructor group by dept_id;
+
+select dept_id,max(a.m) from instructor,(select count(*) m from instructor group by dept_id) a group by dept_id;
+
+select d.dept_id,avg(salary) from instructor i,department d where d.dept_id=i.dept_id group by dept_id;
+
+select dept_id,avg(salary) from instructor group by dept_id;
+
+select dept_id from instructor group by dept_id having avg(salary)>75000;
+
+select avg(salary) from instructor where dept_id=3;
+
+select i.inst_name,salary,d.dept_name from instructor i,department d where i.dept_id=d.dept_id and i.salary>(select max(salary)from instructor where dept_id=2);
+
+select inst_name,dept_id,salary from instructor where (select salary s from instructor where inst_id=1015);
+
+select inst_name,dept_id from instructor,(select salary s from instructor where inst_id=1015)e where salary<e.s;
+
+select i.inst_name,d.dept_name from instructor i,department d,(select salary s from instructor where inst_id=1015)e where i.dept_id=d.dept_id and i.salary<e.s;
+
+ select * from instructor  where salary in (select max(salary) from instructor group by dept_id);
+
+//////////////////////////////////////////////////////creation of view/////////////////////////////////////////
+
+mysql> create view inst_detail as select i.inst_name,i.salary,i.city,d.dept_name from instructor i,department d where i.dept_id=d.dept_id and i.salary>all(select salary from instructor where dept_id=1);

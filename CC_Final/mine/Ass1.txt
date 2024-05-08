@@ -1,0 +1,71 @@
+C:\Users\vaish\AppData\Local\Google\Cloud SDK>google-cloud-sdk\bin\dev_appserver.py "C:\Users\vaish\OneDrive\Desktop\apps"
+
+
+
+
+PS C:\Users\vaish\OneDrive\Desktop\apps> & C:/Users/vaish/anaconda3/python.exe "c:/Users/vaish/AppData/Local/Google/Cloud SDK/google-cloud-sdk/bin/dev_appserver.py"
+This action requires the installation of components: [cloud-datastore-
+emulator, app-engine-python]
+
+
+Your current Google Cloud CLI version is: 472.0.0
+Installing components from version: 472.0.0
+
++---------------------------------------------------+
+|        These components will be installed.        |
++------------------------------+---------+----------+
+|             Name             | Version |   Size   |
++------------------------------+---------+----------+
+| Cloud Datastore Emulator     |   2.3.1 | 36.2 MiB |
+| gRPC Python library          |  1.20.0 |  1.5 MiB |
+| gcloud app Python Extensions | 1.9.113 |  5.0 MiB |
++------------------------------+---------+----------+
+
+For the latest full release notes, please visit:
+  https://cloud.google.com/sdk/release_notes
+
+Do you want to continue (Y/n)?  y
+
+#============================================================#
+#= Creating update staging area                             =#
+#============================================================#
+#= Installing: Cloud Datastore Emulator                     =#
+#============================================================#
+#= Installing: gRPC Python library                          =#
+#============================================================#
+#= Installing: gRPC Python library                          =#
+#============================================================#
+#= Installing: gcloud app Python Extensions                 =#
+#============================================================#
+#= Creating backup and activating new installation          =#
+#============================================================#
+
+Performing post processing steps...done.
+
+Update done!
+
+Restarting command:
+  $ dev_appserver.py
+
+usage: dev_appserver.py [-h] [-A APP_ID] [--host HOST] [--port PORT] [--specified_service_ports SPECIFIED_SERVICE_PORTS] [--admin_host ADMIN_HOST] [--admin_port ADMIN_PORT]
+                        [--auth_domain AUTH_DOMAIN] [--storage_path PATH] [--log_level {debug,info,warning,error,critical}] [--max_module_instances MAX_MODULE_INSTANCES]
+                        [--use_mtime_file_watcher [USE_MTIME_FILE_WATCHER]] [--threadsafe_override THREADSAFE_OVERRIDE] [--addn_host ADDN_HOST] [--enable_host_checking [ENABLE_HOST_CHECKING]]
+                        [--enable_console [ENABLE_CONSOLE]] [--ssl_certificate_path SSL_CERTIFICATE_PATH] [--ssl_certificate_key_path SSL_CERTIFICATE_KEY_PATH] [--php_executable_path PATH]
+                        [--php_library_path PATH] [--php_remote_debugging [PHP_REMOTE_DEBUGGING]] [--php_gae_extension_path PATH] [--php_xdebug_extension_path PATH] [--php_composer_path PATH]
+                        [--appidentity_email_address APPIDENTITY_EMAIL_ADDRESS] [--appidentity_private_key_path APPIDENTITY_PRIVATE_KEY_PATH] [--python_startup_script PYTHON_STARTUP_SCRIPT]
+                        [--python_startup_args PYTHON_STARTUP_ARGS] [--python27_executable_path PYTHON27_EXECUTABLE_PATH] [--python_virtualenv_path PYTHON_VIRTUALENV_PATH]
+                        [--runtime_python_path RUNTIME_PYTHON_PATH] [--go_work_dir GO_WORK_DIR] [--enable_watching_go_path [ENABLE_WATCHING_GO_PATH]] [--go_debugging [GO_DEBUGGING]]
+                        [--custom_entrypoint CUSTOM_ENTRYPOINT] [--runtime RUNTIME] [--blobstore_path BLOBSTORE_PATH] [--mysql_host MYSQL_HOST] [--mysql_port MYSQL_PORT] [--mysql_user MYSQL_USER]      
+                        [--mysql_password MYSQL_PASSWORD] [--mysql_socket MYSQL_SOCKET] [--datastore_path DATASTORE_PATH] [--clear_datastore [CLEAR_DATASTORE]]
+                        [--datastore_consistency_policy {consistent,random,time}] [--require_indexes [REQUIRE_INDEXES]] [--auto_id_policy {sequential,scattered}]
+                        [--support_datastore_emulator [SUPPORT_DATASTORE_EMULATOR]] [--running_datastore_emulator_host RUNNING_DATASTORE_EMULATOR_HOST]
+                        [--datastore_emulator_port DATASTORE_EMULATOR_PORT] [--datastore_emulator_cmd DATASTORE_EMULATOR_CMD] [--logs_path LOGS_PATH] [--show_mail_body [SHOW_MAIL_BODY]]
+                        [--enable_sendmail [ENABLE_SENDMAIL]] [--smtp_host SMTP_HOST] [--smtp_port SMTP_PORT] [--smtp_user SMTP_USER] [--smtp_password SMTP_PASSWORD]
+                        [--smtp_allow_tls [SMTP_ALLOW_TLS]] [--search_indexes_path SEARCH_INDEXES_PATH] [--clear_search_indexes [CLEAR_SEARCH_INDEXES]] [--enable_task_running [ENABLE_TASK_RUNNING]]    
+                        [--allow_skipped_files [ALLOW_SKIPPED_FILES]] [--watcher_ignore_re WATCHER_IGNORE_RE] [--api_host API_HOST] [--api_port API_PORT] [--grpc_api_port GRPC_API_PORT]
+                        [--automatic_restart [AUTOMATIC_RESTART]] [--dev_appserver_log_level {debug,info,warning,error,critical}] [--skip_sdk_update_check [SKIP_SDK_UPDATE_CHECK]]
+                        [--default_gcs_bucket_name DEFAULT_GCS_BUCKET_NAME] [--env_var ENV_VARIABLES]
+                        yaml_path [yaml_path ...]
+dev_appserver.py: error: the following arguments are required: yaml_path
+PS C:\Users\vaish\OneDrive\Desktop\apps> dev_appserver.py
+PS C:\Users\vaish\OneDrive\Desktop\apps> 
